@@ -54,8 +54,10 @@ public class Main {
                         System.out.println("⚠ Topic name cannot be empty!\n");
                     } else {
                         Topic topic = topicService.addTopic(name);
-                        System.out.println("✓ Topic added: " + topic);
-                        System.out.println("  Total topics: " + topicService.getTopicCount());
+                        if (topic != null) {
+                            System.out.println("✓ Topic added: " + topic);
+                            System.out.println("  Total topics: " + topicService.getTopicCount());
+                        }
                         System.out.println();
                     }
                 }
