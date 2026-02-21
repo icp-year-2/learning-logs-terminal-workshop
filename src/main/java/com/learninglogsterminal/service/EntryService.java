@@ -38,7 +38,10 @@ public class EntryService {
     public Entry addEntry(String content, int topicId) {
         // Write your code here
 
-        return null; // ← Replace this
+        Entry entry = new Entry(nextId, content, topicId);
+        entries.add(entry);
+        nextId++;
+        return entry;
     }
 
     // ============================================================
@@ -52,7 +55,7 @@ public class EntryService {
     public List<Entry> getAllEntries() {
         // Write your code here
 
-        return null; // ← Replace this
+        return entries;
     }
 
     // ============================================================
@@ -75,7 +78,12 @@ public class EntryService {
     // ============================================================
     public List<Entry> getEntriesByTopicId(int topicId) {
         // Write your code here
-
-        return null; // ← Replace this
+        List<Entry> result = new ArrayList<>();
+        for (Entry entry : entries){
+            if(entry.getTopicId() == topicId){
+                result.add(entry);
+            }
+        }
+        return result;
     }
 }

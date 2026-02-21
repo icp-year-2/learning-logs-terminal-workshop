@@ -30,9 +30,13 @@ public class Topic {
     //
     // Hint: private int id;
     // ============================================================
+    private int id;
+    private String name;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
 
-
+    
     // ============================================================
     // TODO 2: Create the constructor (+20 XP)
     // ============================================================
@@ -53,6 +57,14 @@ public class Topic {
     //   }
     // ============================================================
 
+    public Topic(int id, String name){
+        this.id = id;
+        this.name = name;
+        LocalDateTime now = LocalDateTime.now();
+        createdAt = now;
+        updatedAt = now;
+    }
+
 
 
     // ============================================================
@@ -71,26 +83,28 @@ public class Topic {
     // ============================================================
     public int getId() {
         // Write your code here
-        return 0; // ← Replace this
+        return id;
     }
 
     public String getName() {
         // Write your code here
-        return null; // ← Replace this
+        return name;
     }
 
     public LocalDateTime getCreatedAt() {
         // Write your code here
-        return null; // ← Replace this
+        return createdAt;
     }
 
     public LocalDateTime getUpdatedAt() {
         // Write your code here
-        return null; // ← Replace this
+        return updatedAt;
     }
 
     public void setName(String name) {
         // Write your code here
+        this.name = name;
+        this.updatedAt = LocalDateTime.now();
     }
 
 
@@ -104,5 +118,9 @@ public class Topic {
     // Hint: return "[" + id + "] " + name + " (Created: " + createdAt + ")";
     // ============================================================
 
+    @Override
+    public String toString() {
+        return "[" + id + "] " + name + " (Created: " + createdAt + ")";
+    }
 
 }

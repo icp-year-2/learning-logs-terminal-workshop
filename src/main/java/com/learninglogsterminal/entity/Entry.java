@@ -35,6 +35,11 @@ public class Entry {
     //
     // Hint: private int id;
     // ============================================================
+    private int id;
+    private String content;
+    private int topicId;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
 
 
@@ -59,6 +64,14 @@ public class Entry {
     //       this.updatedAt = now;
     //   }
     // ============================================================
+    public Entry(int id, String content, int topicId){
+        this.id = id;
+        this.content = content;
+        this.topicId = topicId;
+        LocalDateTime now = LocalDateTime.now();
+        createdAt = now;
+        updatedAt = now;
+    }
 
 
 
@@ -79,31 +92,33 @@ public class Entry {
     // ============================================================
     public int getId() {
         // Write your code here
-        return 0; // ← Replace this
+        return this.id;
     }
 
     public String getContent() {
         // Write your code here
-        return null; // ← Replace this
+        return this.content;
     }
 
     public int getTopicId() {
         // Write your code here
-        return 0; // ← Replace this
+        return this.topicId;
     }
 
     public LocalDateTime getCreatedAt() {
         // Write your code here
-        return null; // ← Replace this
+        return this.createdAt;
     }
 
     public LocalDateTime getUpdatedAt() {
         // Write your code here
-        return null; // ← Replace this
+        return this.updatedAt;
     }
 
     public void setContent(String content) {
         // Write your code here
+        this.content = content;
+        this.updatedAt = LocalDateTime.now();
     }
 
 
@@ -116,6 +131,9 @@ public class Entry {
     //
     // Hint: return "[" + id + "] " + content + " (Topic: " + topicId + ")";
     // ============================================================
-
+    @Override
+    public String toString() {
+        return "[" + id + "] " + content + " (Topic: " + topicId + ")";
+    }
 
 }

@@ -37,8 +37,15 @@ public class TopicService {
     // ============================================================
     public Topic addTopic(String name) {
         // Write your code here
-
-        return null; // ← Replace this
+        if (topicExists(name)) {
+            System.out.println("⚠ A topic with that name already exists!");
+            return null;
+        }
+        Topic topic = new Topic(nextId, name);
+        
+        topics.add(topic);
+        nextId++;
+        return topic;
     }
 
     // ============================================================
@@ -52,7 +59,7 @@ public class TopicService {
     public List<Topic> getAllTopics() {
         // Write your code here
 
-        return null; // ← Replace this
+        return topics;
     }
 
     // ============================================================
@@ -66,7 +73,7 @@ public class TopicService {
     public int getTopicCount() {
         // Write your code here
 
-        return 0; // ← Replace this
+        return topics.size();
     }
 
     // ============================================================
@@ -87,7 +94,12 @@ public class TopicService {
     public Topic findById(int id) {
         // Write your code here
 
-        return null; // ← Replace this
+        for(Topic topic : topics){
+            if(topic.getId() == id){
+                return topic;
+            }
+        }
+        return null;
     }
 
     // ============================================================
@@ -112,7 +124,12 @@ public class TopicService {
     public boolean topicExists(String name) {
         // Write your code here
 
-        return false; // ← Replace this
+        for (Topic topic : topics) {
+            if (topic.getName().equalsIgnoreCase(name)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     // ============================================================
@@ -133,6 +150,11 @@ public class TopicService {
     public Topic findByName(String name) {
         // Write your code here
 
-        return null; // ← Replace this
+        for (Topic topic : topics) {
+            if (topic.getName().equalsIgnoreCase(name)) {
+                return topic;
+            }
+        }
+        return null;
     }
 }
