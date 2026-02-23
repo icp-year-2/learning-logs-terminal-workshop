@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
  * A Topic represents a subject you are learning about.
  * Each topic has:
  *   - id         (int)            → unique identifier
- *   - topicName       (String)         → topic topicName
+ *   - name       (String)         → topic name
  *   - createdAt  (LocalDateTime)  → when it was created
  *   - updatedAt  (LocalDateTime)  → when it was last updated
  */
@@ -24,14 +24,14 @@ public class Topic {
     // ============================================================
     // Declare these private fields:
     //   - int id
-    //   - String topicName
+    //   - String name
     //   - LocalDateTime createdAt
     //   - LocalDateTime updatedAt
     //
     // Hint: private int id;
     // ============================================================
     private int id;
-    private String topicName;
+    private String name;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
@@ -40,26 +40,26 @@ public class Topic {
     // ============================================================
     // TODO 2: Create the constructor (+20 XP)
     // ============================================================
-    // Create a constructor that takes (int id, String topicName)
+    // Create a constructor that takes (int id, String name)
     // Inside the constructor:
     //   - Set this.id = id
-    //   - Set this.topicName = topicName
+    //   - Set this.name = name
     //   - Store LocalDateTime.now() in a variable first
     //   - Set this.createdAt and this.updatedAt to that variable
     //
     // Hint:
-    //   public Topic(int id, String topicName) {
+    //   public Topic(int id, String name) {
     //       this.id = id;
-    //       this.topicName = topicName;
+    //       this.name = name;
     //       LocalDateTime now = LocalDateTime.now();
     //       this.createdAt = now;
     //       this.updatedAt = now;
     //   }
     // ============================================================
 
-    public Topic(int id, String topicName){
+    public Topic(int id, String name){
         this.id = id;
-        this.topicName = topicName;
+        this.name = name;
         LocalDateTime now = LocalDateTime.now();
         createdAt = now;
         updatedAt = now;
@@ -72,13 +72,13 @@ public class Topic {
     // ============================================================
     // Fill in each method body below:
     //   - getId()        → returns id
-    //   - getName()      → returns topicName
+    //   - getName()      → returns name
     //   - getCreatedAt() → returns createdAt
     //   - getUpdatedAt() → returns updatedAt
-    //   - setName(String topicName) → sets topicName AND updates updatedAt
+    //   - setName(String name) → sets name AND updates updatedAt
     //
     // Hint for setName:
-    //   this.topicName = topicName;
+    //   this.name = name;
     //   this.updatedAt = LocalDateTime.now();
     // ============================================================
     public int getId() {
@@ -88,7 +88,7 @@ public class Topic {
 
     public String getName() {
         // Write your code here
-        return topicName;
+        return name;
     }
 
     public LocalDateTime getCreatedAt() {
@@ -101,9 +101,9 @@ public class Topic {
         return updatedAt;
     }
 
-    public void setName(String topicName) {
+    public void setName(String name) {
         // Write your code here
-        this.topicName = topicName;
+        this.name = name;
         this.updatedAt = LocalDateTime.now();
     }
 
@@ -115,12 +115,12 @@ public class Topic {
     // Return a readable string like:
     //   "[1] Java Basics (Created: 2025-02-18T10:30:00)"
     //
-    // Hint: return "[" + id + "] " + topicName + " (Created: " + createdAt + ")";
+    // Hint: return "[" + id + "] " + name + " (Created: " + createdAt + ")";
     // ============================================================
 
     @Override
     public String toString() {
-        return "[" + id + "] " + topicName + " (Created: " + createdAt + ")";
+        return "[" + id + "] " + name + " (Created: " + createdAt + ")";
     }
 
 }
